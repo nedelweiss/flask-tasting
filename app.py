@@ -10,7 +10,7 @@ def calculate_area():
     radius = request.args.get("radius")
     return area(radius)
 
-@app.route('/area2', methods=['POST'])
+@app.post('/area2')
 def calculate_area2():
     data = request.get_json(force=True)
     radius = data['radius']
@@ -25,6 +25,7 @@ def upload_img():
     gray_img_format = opened_colorful_img.format
     img_name = 'gray_' + str(file_storage.filename)
     # gray_img.save(img_name) # save locally
+    # gray_img.show()
 
     gray_img_bytes = io.BytesIO()
     gray_img.save(gray_img_bytes, format=gray_img_format)
